@@ -27,6 +27,6 @@ Breaking the command above down, we have the following points that explains what
 - `"django-admin startproject app ."` is the command that is run within the docker container. This this case, it creates a project directory with the standard initial files.
 
 At this point, we should be able to start up our app with command:
-`docker-compose up` and can view the initial webpage on localhost:8000. We can, however, only create and display static pages on our app as we do not have a database set up.
+`docker-compose up --build` and can view the initial webpage on localhost:8000. We can, however, only create and display static pages on our app as we do not have a database set up.
 
 #### Database
