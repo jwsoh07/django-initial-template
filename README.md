@@ -111,3 +111,15 @@ For the initial setup, PostgreSQL database would be used. There are a few places
 
 Finally, ensure that you have stopped any existing container for the app and run command: `docker-compose up --build`.
 The database would have been able to run, connected to the Django app and ready to receive any new migrations.
+
+## Custom User Model
+It is recommended to create a new custom user model for each new Django project. The steps in this [article](https://testdriven.io/blog/django-custom-user-model/) provides details on how to create one. 
+
+## Tests
+Jacob Kaplan-Moss (Django co-creator):
+> Code without tests is broken as designed.
+
+Writing tests is important because it automates the process of confirming that the code works as expected. In an app like this one, we can manually look and see that the home page and about page exist and contain the intended content. But as a Django project grows in size there can be hundreds if not thousands of individual web pages and the idea of manually going through each page is not possible.
+
+To run all tests, run command:  
+`python3 manage.py test --verbosity 2`
