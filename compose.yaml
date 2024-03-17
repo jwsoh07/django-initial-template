@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+    # reflects any changes in the root of the local project 
+    # directory to the working directory of the container
+    volumes:
+      - ./:/app
+    ports:
+      - 8000:8000
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - ENVIRONMENT=${ENVIRONMENT}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS}
+    command: python manage.py runserver 0.0.0.0:8000
