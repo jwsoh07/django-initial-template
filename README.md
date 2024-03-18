@@ -123,3 +123,25 @@ Writing tests is important because it automates the process of confirming that t
 
 To run all tests, run command:  
 `python3 manage.py test --verbosity 2`
+
+## Deployment to production
+It is not recommended that we use Django's development server in production but to deploy using WSGI. For this to happen, we can use Gunicorn, a pure-Python WSGI server for UNIX. 
+
+Use the following commands on your command line to test the gunicorn server locally.
+```
+docker build -t image-name .
+```
+
+```
+docker run \
+-p 8181:80 \
+-e ALLOWED_HOSTS=localhost \
+-e SECRET_KEY='your-app-secret-key' \
+-e ENVIRONMENT=production \
+-e POSTGRES_PASSWORD=example-password \
+-e POSTGRES_USER=example-user \
+-e POSTGRES_DB=example-db \
+-e POSTGRES_HOST=example-host \
+-e POSTGRES_PORT=example-port \
+image-name
+```

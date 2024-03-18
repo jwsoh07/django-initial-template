@@ -17,3 +17,9 @@ ENV PATH="/py/bin:$PATH"
 COPY . /app
 
 WORKDIR /app
+
+RUN chmod -R +x /app/scripts
+
+EXPOSE 80
+
+CMD ["scripts/run.sh"]
